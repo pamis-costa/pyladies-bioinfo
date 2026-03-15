@@ -52,7 +52,7 @@ export default function Navbar() {
         </li>
         <li>
           <Link href="#contato" className="hover:text-primary cursor-pointer transition">
-            Contatos
+            Contato
           </Link>
         </li>
       </ul>
