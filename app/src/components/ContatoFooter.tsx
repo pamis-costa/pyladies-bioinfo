@@ -6,7 +6,7 @@ import { SiLinktree } from "react-icons/si";
 
 export default function ContatoFooter() {
   return (
-    <footer id="contatos" className="bg-gray-50 flex flex-col gap-16">
+    <footer id="contato" className="bg-gray-50 flex flex-col gap-16">
       {/* Seção de Contato */}
       <section className="px-8 md:px-24 py-8">
         <div className="flex flex-col md:flex-row gap-6 items-start md:items-center mb-10">
@@ -122,7 +122,7 @@ export default function ContatoFooter() {
               <a href="#eventos">
                 <li className="hover:text-black transition-colors cursor-pointer">Eventos</li>
               </a>
-              <a href="#contatos">
+              <a href="#contato">
                 <li className="hover:text-black transition-colors cursor-pointer">Contato</li>
               </a>
             </ul>
