@@ -8,7 +8,7 @@ export default function Hero() {
       {/* Lado Esquerdo - Textos */}
       <div className="w-full md:w-1/2 flex flex-col items-start gap-8">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-          <spam className="text-amber-900">Mulheres</spam>,<span className="text-amber-300">Python</span> <br /> e <span className="text-blue-600">Bioinformática</span>.
+          <span className="text-amber-900">Mulheres</span>,<span className="text-amber-300">Python</span> <br /> e <span className="text-blue-600">Bioinformática</span>.
         </h1>
         
         <p className="text-gray-800 text-lg md:text-xl max-w-lg leading-relaxed">
