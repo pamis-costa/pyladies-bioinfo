@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧬 PyLadies Bioinfo - Landing Page
 
-## Getting Started
+Bem-vinda ao repositório oficial do site da comunidade **PyLadies Bioinfo**! 
 
-First, run the development server:
+Este projeto foi desenvolvido para ser o principal ponto de contato, divulgação de projetos e conexão para mulheres que atuam ou desejam ingressar na intersecção entre biologia, tecnologia e análise de dados.
 
+## 💻 Tecnologias Utilizadas
+
+Este projeto foi construído com foco em performance, acessibilidade e design responsivo, utilizando as seguintes tecnologias:
+
+* **[Next.js](https://nextjs.org/)** (React Framework)
+* **[TypeScript](https://www.typescriptlang.org/)** (Tipagem estática)
+* **[Tailwind CSS](https://tailwindcss.com/)** (Estilização e Responsividade)
+* **[Framer Motion](https://www.framer.com/motion/)** (Animações suaves, como o botão "Voltar ao Topo")
+* **[Swiper](https://swiperjs.com/)** (Carrossel interativo de depoimentos)
+* **[React Icons](https://react-icons.github.io/react-icons/)** (Ícones padronizados e leves)
+* **[FormSubmit](https://formsubmit.co/)** (Integração de formulário de contato sem backend)
+
+## 🧩 Estrutura do Site
+
+O layout foi componentizado para facilitar a manutenção e escalabilidade. As principais seções incluem:
+
+* **Navbar:** Navegação responsiva com menu sanduíche para dispositivos móveis e rolagem suave (Smooth Scroll).
+* **Hero Section:** Apresentação de impacto da missão da comunidade.
+* **Sobre Nós:** Acordeão interativo (Accordion) detalhando os pilares e valores do grupo.
+* **Projetos:** Cards dinâmicos com efeito de "marca-texto" e ilustrações vazadas.
+* **Equipe:** Grid de perfis com links diretos para o LinkedIn e Instagram de cada membro.
+* **Depoimentos:** Carrossel interativo (Swiper) com paginação personalizada em formato de estrela.
+* **Contato & Footer:** Formulário de contato funcional e links úteis de navegação e apoio (Vakinha).
+
+## 🚀 Como rodar o projeto localmente
+
+Siga os passos abaixo para testar o site na sua máquina:
+
+1. Clone este repositório:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone [https://github.com/pamis-costa/pyladies-bioinfo.git]
