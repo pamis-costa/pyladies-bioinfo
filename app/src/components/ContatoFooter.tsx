@@ -22,7 +22,7 @@ export default function ContatoFooter() {
 
         <div className="bg-gray-100 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-10 items-center">
           
-          {/* 1. Transformamos o formulário para enviar os dados via POST para o FormSubmit */}
+          {/* 1. Transformar o formulário para enviar os dados via POST para o FormSubmit */}
           <form 
             action="https://formsubmit.co/#" 
             method="POST" 
@@ -113,7 +113,7 @@ export default function ContatoFooter() {
           <div>
             <h4 className="font-bold text-gray-900 mb-4">Navegação</h4>
             <ul className="flex flex-col gap-2 text-gray-800">
-              <a href="#Home">
+              <a href="#sobrenos">
                 <li className="hover:text-black transition-colors cursor-pointer">Sobre nós</li>
               </a>
               <a href="#projetos">
