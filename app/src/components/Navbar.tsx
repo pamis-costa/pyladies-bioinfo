@@ -17,16 +17,16 @@ export default function Navbar() {
 
   return (
     // Adicionei relative e z-50 para o menu flutuante não ficar escondido atrás de outras coisas
-    <nav className="bg-[#085692] w-full flex justify-between items-center text-white px-8 py-5 md:px-20 relative z-50">
+    <nav className="bg-[#085692] w-full flex justify-between items-center text-white px-8 py-4 md:px-20 relative z-50">
       
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo-horizontal.png"
+            src="/logo-vetorizada.svg"
             alt="Logo PyLadies Bioinfo"
-            width={170}
-            height={80}
+            width={250}
+            height={75}
             className="object-contain"
             priority
           />

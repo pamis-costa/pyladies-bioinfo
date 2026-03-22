@@ -94,7 +94,7 @@ export default function ContatoFooter() {
             <div className="flex flex-col items-center max-w-sm">
               <div className="mb-4">
                 <Image
-                  src="/logo-horizontal.png"
+                  src="/logo-vetorizada.svg"
                   alt="Logo PyLadies Bioinfo"
                   width={170}
                   height={80}
