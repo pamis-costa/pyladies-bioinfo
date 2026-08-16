@@ -24,7 +24,7 @@ export default function ContatoFooter() {
           
           {/* 1. Transformar o formulário para enviar os dados via POST para o FormSubmit */}
           <form 
-            action="https://formsubmit.co/#" 
+            action="https://formsubmit.co/f380a3d907f47381e61a3057dd2b45a3" 
             method="POST" 
             className="w-full md:w-1/2 flex flex-col gap-4"
           >
