@@ -30,7 +30,7 @@ export default function ContatoFooter() {
           >
             {/* Campos ocultos de configuração do FormSubmit */}
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="http://localhost:3000" /> 
+            <input type="hidden" name="_next" value="https://pyladies-bioinfo.vercel.app/#contato" /> 
             
             <div>
               <label className="text-sm text-gray-700 mb-1 block">Nome</label>
