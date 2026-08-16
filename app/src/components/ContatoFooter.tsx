@@ -1,10 +1,47 @@
-// src/components/ContatoFooter.tsx
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { SiLinktree } from "react-icons/si";
 
 export default function ContatoFooter() {
+  // Estado para controlar o botão e a mensagem de sucesso na tela
+  const [status, setStatus] = useState("pendente"); // Pode ser: 'pendente', 'enviando', 'sucesso', 'erro'
+
+  // Função que envia o formulário sem recarregar a página
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Impede a tela de piscar/recarregar
+    setStatus("enviando");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      // 💡 Atenção: Adicionamos o "/ajax/" no link do FormSubmit para ele não sair da página!
+      const response = await fetch("https://formsubmit.co/ajax/f380a3d907f47381e61a3057dd2b45a3", {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        setStatus("sucesso");
+        form.reset(); // Limpa os campos depois de enviar
+        
+        // Faz a mensagem verde de sucesso sumir sozinha após 5 segundos
+        setTimeout(() => setStatus("pendente"), 5000);
+      } else {
+        setStatus("erro");
+      }
+    } catch (error) {
+      setStatus("erro");
+    }
+  };
+
   return (
     <footer id="contato" className="bg-gray-50 flex flex-col gap-16">
       {/* Seção de Contato */}
@@ -22,15 +59,13 @@ export default function ContatoFooter() {
 
         <div className="bg-gray-100 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-10 items-center">
           
-          {/* 1. Transformar o formulário para enviar os dados via POST para o FormSubmit */}
+          {/* Agora o formulário usa o nosso evento onSubmit ao invés de action */}
           <form 
-            action="https://formsubmit.co/f380a3d907f47381e61a3057dd2b45a3" 
-            method="POST" 
-            className="w-full md:w-1/2 flex flex-col gap-4"
+            onSubmit={handleSubmit}
+            className="w-full md:w-1/2 flex flex-col gap-4 relative"
           >
-            {/* Campos ocultos de configuração do FormSubmit */}
+            {/* Campos ocultos do FormSubmit (O _next não é mais necessário aqui, mas manter o _captcha é bom) */}
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://pyladies-bioinfo.vercel.app/#contato" /> 
             
             <div>
               <label className="text-sm text-gray-700 mb-1 block">Nome</label>
@@ -38,7 +73,7 @@ export default function ContatoFooter() {
                 type="text"
                 name="nome"
                 required
-                className="w-full border text-black border-gray-500 rounded-lg p-3"
+                className="w-full border text-black border-gray-500 rounded-lg p-3 focus:outline-none focus:border-[#004B87]"
                 placeholder="Seu nome"
               />
             </div>
@@ -48,7 +83,7 @@ export default function ContatoFooter() {
                 type="email"
                 name="email"
                 required
-                className="w-full border text-black border-gray-500 rounded-lg p-3"
+                className="w-full border text-black border-gray-500 rounded-lg p-3 focus:outline-none focus:border-[#004B87]"
                 placeholder="Seu email"
               />
             </div>
@@ -59,17 +94,33 @@ export default function ContatoFooter() {
               <textarea
                 name="mensagem"
                 required
-                className="w-full text-black border border-gray-500 rounded-lg p-3 h-32"
+                className="w-full text-black border border-gray-500 rounded-lg p-3 h-32 focus:outline-none focus:border-[#004B87]"
                 placeholder="Sua mensagem"
               ></textarea>
             </div>
             
             <button
               type="submit"
-              className="bg-amber-300 text-black font-bold py-3 rounded-lg hover:bg-blue-500 transition mt-2 cursor-pointer"
+              disabled={status === "enviando"} // Desativa o botão para não clicarem duas vezes
+              className={`font-bold py-3 rounded-lg transition mt-2 cursor-pointer text-black
+                ${status === "enviando" ? "bg-gray-300 cursor-not-allowed" : "bg-amber-300 hover:bg-[#004B87] hover:text-white"}
+              `}
             >
-              Enviar mensagem
+              {status === "enviando" ? "Enviando..." : "Enviar mensagem"}
             </button>
+
+            {/* MENSAGEM DE SUCESSO OU ERRO NA TELA */}
+            {status === "sucesso" && (
+              <div className="mt-4 p-4 bg-green-100 text-green-800 border border-green-300 rounded-lg text-center font-medium animate-pulse">
+                ✅ Mensagem enviada com sucesso! Logo entraremos em contato.
+              </div>
+            )}
+            {status === "erro" && (
+              <div className="mt-4 p-4 bg-red-100 text-red-800 border border-red-300 rounded-lg text-center font-medium">
+                ❌ Ops! Ocorreu um erro ao enviar. Tente novamente.
+              </div>
+            )}
+
           </form>
 
           <div className="w-full md:w-1/2 flex justify-center hidden md:flex">
@@ -89,7 +140,6 @@ export default function ContatoFooter() {
       <div className="bg-primary px-8 md:px-24 py-12 rounded-t-[50px]">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           
-          {/* 👇 COLUNA DA LOGO AJUSTADA AQUI 👇 */}
           <div className="col-span-2">
             <div className="flex flex-col items-center max-w-sm">
               <div className="mb-4">
